@@ -12,6 +12,8 @@
 		DF4818FB19A0D3C900767C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF4818F919A0D3C900767C45 /* Main.storyboard */; };
 		DF4818FD19A0D3C900767C45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF4818FC19A0D3C900767C45 /* Images.xcassets */; };
 		DF48190919A0D3CA00767C45 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF48190819A0D3C900767C45 /* SearchControllerTests.swift */; };
+		DF48191319A0D3E000767C45 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */; };
+		DF48191619A0F95000767C45 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DF48191519A0F95000767C45 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		DF48190219A0D3C900767C45 /* SearchControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF48190719A0D3C900767C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF48190819A0D3C900767C45 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
+		DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		DF48191519A0F95000767C45 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 		DF4818E719A0D3C900767C45 = {
 			isa = PBXGroup;
 			children = (
+				DF48191519A0F95000767C45 /* README.md */,
 				DF4818F219A0D3C900767C45 /* SearchController */,
 				DF48190519A0D3C900767C45 /* SearchControllerTests */,
 				DF4818F119A0D3C900767C45 /* Products */,
@@ -76,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				DF4818F519A0D3C900767C45 /* AppDelegate.swift */,
-				DF4818F719A0D3C900767C45 /* ViewController.swift */,
+				DF48191419A0D3E700767C45 /* View Controller */,
 				DF4818F919A0D3C900767C45 /* Main.storyboard */,
 				DF4818FC19A0D3C900767C45 /* Images.xcassets */,
 				DF4818F319A0D3C900767C45 /* Supporting Files */,
@@ -107,6 +112,15 @@
 				DF48190719A0D3C900767C45 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DF48191419A0D3E700767C45 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DF4818F719A0D3C900767C45 /* ViewController.swift */,
+				DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +172,7 @@
 				TargetAttributes = {
 					DF4818EF19A0D3C900767C45 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = CCFNPH2S7P;
 					};
 					DF48190119A0D3C900767C45 = {
 						CreatedOnToolsVersion = 6.0;
@@ -209,6 +224,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF4818F819A0D3C900767C45 /* ViewController.swift in Sources */,
+				DF48191319A0D3E000767C45 /* ViewControllerExtensions.swift in Sources */,
+				DF48191619A0F95000767C45 /* README.md in Sources */,
 				DF4818F619A0D3C900767C45 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SearchController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -336,6 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SearchController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -395,6 +414,7 @@
 				DF48190E19A0D3CA00767C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF48190F19A0D3CA00767C45 /* Build configuration list for PBXNativeTarget "SearchControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +423,7 @@
 				DF48191119A0D3CA00767C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
