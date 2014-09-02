@@ -39,5 +39,15 @@ When this delegate method is called:
 
 In `cellForRowAtIndexPath`, the `countryTable` is populated based on whether or not the `searchController` is active. 
 
-That's it. 
+---
 
+Build 2 includes an alternate setup that allows you to use a separate view controller to present search results:
+
+A standalone tableViewController is created in Storyboard and then instantiated as part of the `UISearchController` setup.
+
+`let alternateController:AlternateTableViewController = storyBoard.instantiateViewControllerWithIdentifier("aTV") as AlternateTableViewController`
+`let controller = UISearchController(searchResultsController: alternateController)`
+
+`AlternateTableViewController` conforms to `UISearchResultsUpdating` and is responsible for displaying search results from the original view controllers search results array.
+
+That's it. 

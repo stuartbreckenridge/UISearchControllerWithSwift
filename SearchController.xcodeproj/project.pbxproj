@@ -13,7 +13,8 @@
 		DF4818FD19A0D3C900767C45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF4818FC19A0D3C900767C45 /* Images.xcassets */; };
 		DF48190919A0D3CA00767C45 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF48190819A0D3C900767C45 /* SearchControllerTests.swift */; };
 		DF48191319A0D3E000767C45 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */; };
-		DF48191619A0F95000767C45 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DF48191519A0F95000767C45 /* README.md */; };
+		DFBAD19019B5D1E9004C5852 /* AlternateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAD18F19B5D1E9004C5852 /* AlternateTableViewController.swift */; };
+		DFBAD19219B5D32E004C5852 /* AlternateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAD19119B5D32E004C5852 /* AlternateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		DF48190819A0D3C900767C45 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
 		DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DF48191519A0F95000767C45 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DFBAD18F19B5D1E9004C5852 /* AlternateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternateTableViewController.swift; sourceTree = "<group>"; };
+		DFBAD19119B5D32E004C5852 /* AlternateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternateTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,7 @@
 			children = (
 				DF4818F519A0D3C900767C45 /* AppDelegate.swift */,
 				DF48191419A0D3E700767C45 /* View Controller */,
+				DFBAD18E19B5D12D004C5852 /* Alternate View Controller */,
 				DF4818F919A0D3C900767C45 /* Main.storyboard */,
 				DF4818FC19A0D3C900767C45 /* Images.xcassets */,
 				DF4818F319A0D3C900767C45 /* Supporting Files */,
@@ -121,6 +125,15 @@
 				DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */,
 			);
 			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		DFBAD18E19B5D12D004C5852 /* Alternate View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DFBAD18F19B5D1E9004C5852 /* AlternateTableViewController.swift */,
+				DFBAD19119B5D32E004C5852 /* AlternateTableViewCell.swift */,
+			);
+			name = "Alternate View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +185,6 @@
 				TargetAttributes = {
 					DF4818EF19A0D3C900767C45 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = CCFNPH2S7P;
 					};
 					DF48190119A0D3C900767C45 = {
 						CreatedOnToolsVersion = 6.0;
@@ -223,9 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFBAD19019B5D1E9004C5852 /* AlternateTableViewController.swift in Sources */,
 				DF4818F819A0D3C900767C45 /* ViewController.swift in Sources */,
+				DFBAD19219B5D32E004C5852 /* AlternateTableViewCell.swift in Sources */,
 				DF48191319A0D3E000767C45 /* ViewControllerExtensions.swift in Sources */,
-				DF48191619A0F95000767C45 /* README.md in Sources */,
 				DF4818F619A0D3C900767C45 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
