@@ -11,7 +11,7 @@ import UIKit
 
 extension ViewController: UITableViewDataSource
 {
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if (self.countrySearchController.active)
         {
@@ -22,19 +22,19 @@ extension ViewController: UITableViewDataSource
         }
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var cell = self.countryTable.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         
         if (self.countrySearchController.active)
         {
-            cell.textLabel.text = self.searchArray[indexPath.row]
+            cell.textLabel?.text! = self.searchArray[indexPath.row]
             return cell
         }
         
         else
         {
-            cell.textLabel.text = self.countryArray[indexPath.row]
+            cell.textLabel?.text! = self.countryArray[indexPath.row]
             return cell
         }
     }
@@ -42,7 +42,7 @@ extension ViewController: UITableViewDataSource
 
 extension ViewController: UITableViewDelegate
 {
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
@@ -50,7 +50,7 @@ extension ViewController: UITableViewDelegate
 
 extension ViewController: UISearchResultsUpdating
 {
-    func updateSearchResultsForSearchController(searchController: UISearchController!)
+    func updateSearchResultsForSearchController(searchController: UISearchController)
     {
         self.searchArray.removeAll(keepCapacity: false)
      

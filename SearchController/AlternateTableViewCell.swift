@@ -26,7 +26,6 @@ class AlternateTableViewCell: UITableViewCell {
     func configureCell(country:String)
     {
         self.hugeCountryLabel.text = country
-        print(self.hugeCountryLabel.text)
     }
 
 }
