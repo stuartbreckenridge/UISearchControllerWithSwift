@@ -34,7 +34,7 @@ class ViewController: UIViewController {
             //FIXME: Hiding the navigationBar places the first search result out of sight, so it's kept in view here.
             controller.hidesNavigationBarDuringPresentation = false
             controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.countryTable.frame), 44.0)
+            controller.searchBar.sizeToFit()
             self.countryTable.tableHeaderView = controller.searchBar
             */
             
@@ -45,8 +45,8 @@ class ViewController: UIViewController {
             controller.hidesNavigationBarDuringPresentation = false
             controller.dimsBackgroundDuringPresentation = false
             controller.searchResultsUpdater = alternateController
-            controller.definesPresentationContext = true
-            controller.searchBar.frame = CGRectMake(0, 0, CGRectGetWidth(self.countryTable.frame), 44.0)
+            controller.definesPresentationContext = false
+            controller.searchBar.sizeToFit()
             self.countryTable.tableHeaderView = controller.searchBar
             
             return controller
