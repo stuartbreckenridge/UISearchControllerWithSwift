@@ -54,15 +54,9 @@ extension ViewController: UISearchResultsUpdating
     {
         self.searchArray.removeAll(keepCapacity: false)
      
-        for country:String in self.countryArray
-        {
-            var searchText = searchController.searchBar.text
-            
-            if NSString(string: country.lowercaseString).containsString(searchText.lowercaseString)
-            {
-                searchArray.append(country)
-            }
-        }
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
+        let array = (self.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate!)
+        self.searchArray = array as [String]
         
         self.countryTable.reloadData()
     }

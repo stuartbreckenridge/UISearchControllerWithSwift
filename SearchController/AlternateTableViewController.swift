@@ -38,15 +38,9 @@ class AlternateTableViewController: UITableViewController, UISearchResultsUpdati
     {
         viewController.searchArray.removeAll(keepCapacity: false)
         
-        for country:String in viewController.countryArray
-        {
-            var searchText = searchController.searchBar.text
-            
-            if NSString(string: country.lowercaseString).containsString(searchText.lowercaseString)
-            {
-                viewController.searchArray.append(country)
-            }
-        }
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
+        let array = (viewController.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate!)
+        viewController.searchArray = array as [String]
         
         self.tableView.reloadData()
     }

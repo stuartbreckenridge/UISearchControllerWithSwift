@@ -21,7 +21,7 @@ The ViewController is responsible for updating the contents of search controller
 
 This is set to `false` as a workaround. When `true` the navBar hides, but the first search result is hidden.
 
-`controller.searchBar.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(self.countryTable.frame), 44.0)`     
+`controller.searchBar.sizeToFit()`     
 `self.countryTable.tableHeaderView = controller.searchBar`
 
 Finally, you need to set the frame of the searchBar (otherwise it has a height of 0). 
@@ -48,6 +48,6 @@ A standalone tableViewController is created in Storyboard and then instantiated 
 `let alternateController:AlternateTableViewController = storyBoard.instantiateViewControllerWithIdentifier("aTV") as AlternateTableViewController`
 `let controller = UISearchController(searchResultsController: alternateController)`
 
-`AlternateTableViewController` conforms to `UISearchResultsUpdating` and is responsible for displaying search results from the original view controllers search results array.
+`AlternateTableViewController` conforms to `UISearchResultsUpdating` and is responsible for displaying search results from the original view controller's search results array.
 
 That's it. 
