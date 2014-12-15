@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stuarticus/UISearchControllerWithSwift.svg)](https://travis-ci.org/stuarticus/UISearchControllerWithSwift)
+
 # UISearchController
 
 This app uses the new `UISearchController` API to manage the display of search results. 
