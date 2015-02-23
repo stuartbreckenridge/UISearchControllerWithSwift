@@ -23,9 +23,9 @@ class AlternateTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(country:String)
+    func configureCell(#countryName:String)
     {
-        self.hugeCountryLabel.text = country
+        self.hugeCountryLabel.text = countryName
     }
 
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class AlternateTableViewController: UITableViewController, UISearchResultsUpdating {
 
-    let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("NormalViewController") as ViewController
+    let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("NormalViewController") as! ViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,9 @@ class AlternateTableViewController: UITableViewController, UISearchResultsUpdati
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LargeCell", forIndexPath: indexPath) as AlternateTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("LargeCell", forIndexPath: indexPath) as! AlternateTableViewCell
 
-        cell.configureCell(viewController.searchArray[indexPath.row])
+        cell.configureCell(countryName:viewController.searchArray[indexPath.row])
 
         return cell
     }
@@ -39,8 +39,8 @@ class AlternateTableViewController: UITableViewController, UISearchResultsUpdati
         viewController.searchArray.removeAll(keepCapacity: false)
         
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
-        let array = (viewController.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate!)
-        viewController.searchArray = array as [String]
+        let array = (viewController.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        viewController.searchArray = array as! [String]
         
         self.tableView.reloadData()
     }

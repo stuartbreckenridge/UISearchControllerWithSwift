@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zsa-OG-get">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zsa-OG-get">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
     </dependencies>
     <scenes>
         <!--Countries-->
@@ -14,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jNP-tb-Jrm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="6cn-N9-Fu2" style="IBUITableViewCellStyleDefault" id="GEF-vF-CT2">
@@ -40,10 +39,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jNP-tb-Jrm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-64" id="Dfe-us-OGv"/>
-                            <constraint firstItem="jNP-tb-Jrm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="LUu-rx-zgE"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jNP-tb-Jrm" secondAttribute="bottom" id="nWc-YC-OSS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jNP-tb-Jrm" secondAttribute="trailing" constant="-16" id="uhb-Bh-fMc"/>
+                            <constraint firstItem="jNP-tb-Jrm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="9jk-Op-xPk"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jNP-tb-Jrm" secondAttribute="bottom" id="azN-4H-Ibv"/>
+                            <constraint firstAttribute="centerX" secondItem="jNP-tb-Jrm" secondAttribute="centerX" id="bza-YO-NZ7"/>
+                            <constraint firstAttribute="width" secondItem="jNP-tb-Jrm" secondAttribute="width" id="pJn-9V-ZR8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Countries" id="mKf-CP-VXY"/>
@@ -53,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="386"/>
+            <point key="canvasLocation" x="1053" y="1047"/>
         </scene>
         <!--Alternate Table View Controller-->
         <scene sceneID="wQp-Cf-pK1">
@@ -97,9 +96,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zsa-OG-get" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CbV-28-pAr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="CbV-28-pAr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.48702303855906059" green="0.84777462121212122" blue="0.79988547971806023" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

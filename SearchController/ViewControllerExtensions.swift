@@ -24,7 +24,7 @@ extension ViewController: UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = self.countryTable.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        var cell = self.countryTable.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
         
         if (self.countrySearchController.active)
         {
@@ -55,8 +55,8 @@ extension ViewController: UISearchResultsUpdating
         self.searchArray.removeAll(keepCapacity: false)
      
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
-        let array = (self.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate!)
-        self.searchArray = array as [String]
+        let array = (self.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        self.searchArray = array as! [String]
         
         self.countryTable.reloadData()
     }
