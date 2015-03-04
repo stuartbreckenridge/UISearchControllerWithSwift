@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg)](https://travis-ci.org/stuarticus/UISearchControllerWithSwift)
+[![Build Status](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg)](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift)
+[![Codeship Status for stuartbreckenridge/UISearchControllerWithSwift](https://codeship.com/projects/060492d0-a49c-0132-18b4-664e44cdc1be/status?branch=master)](https://codeship.com/projects/66407)
 
 # UISearchController
 
@@ -30,10 +31,10 @@ There is no need to add a search bar in Interface Builder.
 The important protocol included the extensions file is `extension ViewController: UISearchResultsUpdating`.
 
 When this delegate method is called:
-- `searchArray`is cleared.
-- a search of `countryArray` is performed based on `searchController.searchBar.text`.
+- `searchArray` is cleared
+- a search of `countryArray` is performed based on `searchController.searchBar.text`
 - any matches are added to `searchArray`
-- `self.countryTable` is reloaded.
+- `self.countryTable` is reloaded
 
 In `cellForRowAtIndexPath`, the `countryTable` is populated based on whether or not the `searchController` is active. 
 
