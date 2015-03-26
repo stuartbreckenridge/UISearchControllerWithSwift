@@ -56,4 +56,15 @@ A standalone tableViewController is created in Storyboard and then instantiated 
 - Updated to support Swift 1.2 beta 1 (requires Xcode 6.3 beta 1).
 - Larger selection of countries to search. 
 - Housekeeping. 
+ 
+ 
+####27th March 2015
+ 
+- Updated to support Swift 1.2 beta 3 (requires Xcode 6.3 beta 3).
+ - Switched to didSet syntax when updating the searchResults tableview:
+ 
+ `var searchArray:[String] = [String](){
+ didSet  {self.countryTable.reloadData()}
+ }`
+ 
     

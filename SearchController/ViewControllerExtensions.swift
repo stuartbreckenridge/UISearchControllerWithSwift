@@ -57,7 +57,5 @@ extension ViewController: UISearchResultsUpdating
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
         let array = (self.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
         self.searchArray = array as! [String]
-        
-        self.countryTable.reloadData()
     }
 }
