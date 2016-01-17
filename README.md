@@ -1,11 +1,10 @@
 [![Build Status](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg)](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift)
-[![Codeship Status for stuartbreckenridge/UISearchControllerWithSwift](https://codeship.com/projects/060492d0-a49c-0132-18b4-664e44cdc1be/status?branch=master)](https://codeship.com/projects/66407)
 
 # UISearchController
 
 This app uses the new `UISearchController` API to manage the display of search results. 
 
-There are two main classes: `ViewController.swift` and `ViewControllerExtensions.swift`.
+There one class: `ViewController.swift`, and its extension file, `ViewControllerExtensions.swift`.
 
 ### ViewController.swift
 This class sets up a sample `Array` of different countries (`countryArray`), an `Array` for holding search results (`searchArray`), and finally a `UISearchController` for which manages the searching (`countrySearchController`).
@@ -69,5 +68,9 @@ A standalone tableViewController is created in Storyboard and then instantiated 
  
 ####16th April 2015
 - Swift 1.2 support.
+ 
+ 
+####17th Jan 2016
+ - Swift 2.1 support.
  
     

@@ -21,8 +21,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Configure countryTable
-        self.countryTable.delegate = self
-        self.countryTable.dataSource = self
+        countryTable.delegate = self
+        countryTable.dataSource = self
         
         
         // Configure countrySearchController
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        self.countryTable.reloadData()
+        countryTable.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
