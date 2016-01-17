@@ -1,4 +1,0 @@
-language: objective-c
-osx_image: xcode7.2
-xcode_project: SearchController.xcodeproj 
-xcode_scheme: SearchControllerScheme

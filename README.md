@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg)](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift)
-
 # UISearchController
-
 This app uses the new `UISearchController` API to manage the display of search results. 
 
 There one class: `ViewController.swift`, and its extension file, `ViewControllerExtensions.swift`.
@@ -20,7 +17,7 @@ The `countrySearchController` is setup in `viewDidLoad` as follows:
 The ViewController is responsible for updating the contents of search controller. This means that the ViewController must conform to the new `UISearchResultsUpdating` protocol. 
 
 `controller.searchBar.sizeToFit()`     
-`self.countryTable.tableHeaderView = controller.searchBar`
+`countryTable.tableHeaderView = controller.searchBar`
 
 Finally, you need to set the frame of the searchBar (otherwise it has a height of 0). 
 
@@ -33,7 +30,7 @@ When this delegate method is called:
 - `searchArray` is cleared
 - a search of `countryArray` is performed based on `searchController.searchBar.text`
 - any matches are added to `searchArray`
-- `self.countryTable` is reloaded
+- `countryTable` is reloaded
 
 In `cellForRowAtIndexPath`, the `countryTable` is populated based on whether or not the `searchController` is active. 
 
@@ -63,7 +60,7 @@ A standalone tableViewController is created in Storyboard and then instantiated 
 - Switched to didSet syntax when updating the searchResults tableview:
  
  `var searchArray:[String] = [String](){
- didSet  {self.countryTable.reloadData()}
+ didSet  {countryTable.reloadData()}
  }`
  
 ####16th April 2015
