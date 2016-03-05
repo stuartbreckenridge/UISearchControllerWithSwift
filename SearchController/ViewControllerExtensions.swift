@@ -13,28 +13,24 @@ extension ViewController: UITableViewDataSource
 {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if (self.countrySearchController.active)
-        {
-            return self.searchArray.count
-        } else
-        {
-            return self.countryArray.count
+        switch countrySearchController.active {
+        case true:
+            return searchArray.count
+        case false:
+            return countryArray.count
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = self.countryTable.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+        let cell = countryTable.dequeueReusableCellWithIdentifier("Cell")!
         
-        if (self.countrySearchController.active)
-        {
-            cell.textLabel?.text! = self.searchArray[indexPath.row]
+        switch countrySearchController.active {
+        case true:
+            cell.textLabel?.text! = searchArray[indexPath.row]
             return cell
-        }
-        
-        else
-        {
-            cell.textLabel?.text! = self.countryArray[indexPath.row]
+        case false:
+            cell.textLabel?.text! = countryArray[indexPath.row]
             return cell
         }
     }
@@ -52,10 +48,10 @@ extension ViewController: UISearchResultsUpdating
 {
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        self.searchArray.removeAll(keepCapacity: false)
+        searchArray.removeAll(keepCapacity: false)
      
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
-        let array = (self.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
-        self.searchArray = array as! [String]
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        let array = (countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        searchArray = array as! [String]
     }
 }
