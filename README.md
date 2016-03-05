@@ -47,6 +47,11 @@ A standalone tableViewController is created in Storyboard and then instantiated 
 
 ---
 
+####05th March 2016
+
+- Updated to support Swift 2.3 beta (Xcode >= 7.3)
+
+
 ####23rd Feb 2015
 
 - Updated to support Swift 1.2 beta 1 (requires Xcode 6.3 beta 1).

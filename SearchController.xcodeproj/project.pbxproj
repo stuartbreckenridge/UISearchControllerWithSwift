@@ -13,6 +13,7 @@
 		DF4818FD19A0D3C900767C45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF4818FC19A0D3C900767C45 /* Images.xcassets */; };
 		DF48190919A0D3CA00767C45 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF48190819A0D3C900767C45 /* SearchControllerTests.swift */; };
 		DF48191319A0D3E000767C45 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */; };
+		DFAF529F1C8B272C0078CF02 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = DFAF529E1C8B272C0078CF02 /* .travis.yml */; };
 		DFBAD19019B5D1E9004C5852 /* AlternateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAD18F19B5D1E9004C5852 /* AlternateTableViewController.swift */; };
 		DFBAD19219B5D32E004C5852 /* AlternateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAD19119B5D32E004C5852 /* AlternateTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		DF48190819A0D3C900767C45 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
 		DF48191219A0D3E000767C45 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DF48191519A0F95000767C45 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DFAF529E1C8B272C0078CF02 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		DFBAD18F19B5D1E9004C5852 /* AlternateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternateTableViewController.swift; sourceTree = "<group>"; };
 		DFBAD19119B5D32E004C5852 /* AlternateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternateTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				DF48191519A0F95000767C45 /* README.md */,
+				DFAF529E1C8B272C0078CF02 /* .travis.yml */,
 				DF4818F219A0D3C900767C45 /* SearchController */,
 				DF48190519A0D3C900767C45 /* SearchControllerTests */,
 				DF4818F119A0D3C900767C45 /* Products */,
@@ -219,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFAF529F1C8B272C0078CF02 /* .travis.yml in Resources */,
 				DF4818FB19A0D3C900767C45 /* Main.storyboard in Resources */,
 				DF4818FD19A0D3C900767C45 /* Images.xcassets in Resources */,
 			);
@@ -377,9 +381,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SearchController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stuartbreckenridge.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -390,9 +396,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SearchController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stuartbreckenridge.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

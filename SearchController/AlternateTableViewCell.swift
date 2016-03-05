@@ -25,7 +25,7 @@ class AlternateTableViewCell: UITableViewCell {
     
     func configureCell(countryName countryName:String)
     {
-        self.hugeCountryLabel.text = countryName
+        hugeCountryLabel.text = countryName
     }
 
 }
