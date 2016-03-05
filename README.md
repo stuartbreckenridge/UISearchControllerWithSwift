@@ -1,32 +1,38 @@
 # UISearchController
+[![Build Status](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg?branch=master)](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift)
+
 This app uses the new `UISearchController` API to manage the display of search results. 
 
 There one class: `ViewController.swift`, and its extension file, `ViewControllerExtensions.swift`.
 
 ### ViewController.swift
-This class sets up a sample `Array` of different countries (`countryArray`), an `Array` for holding search results (`searchArray`), and finally a `UISearchController` for which manages the searching (`countrySearchController`).
+This class sets up a sample `Array` of different countries (`countryArray`), an `Array` for holding search results (`searchArray`), and finally a `UISearchController` called `countrySearchController`.
 
-The `countrySearchController` is setup in `viewDidLoad` as follows:
+The `countrySearchController` is configured during initialisation:
 
 `let controller = UISearchController(searchResultsController: nil)`
 
 >*nil* is passed as the argument in the method parameter as it has the effect of presenting the search results in the current view.
 
-`controller.searchResultsUpdater = self`
+`var countrySearchController: UISearchController = ({
+    let controller = UISearchController(searchResultsController: nil)
+    controller.hidesNavigationBarDuringPresentation = false
+    controller.dimsBackgroundDuringPresentation = false
+    controller.searchBar.searchBarStyle = .Minimal
+    controller.searchBar.sizeToFit()
+    return controller
+})()`
 
-The ViewController is responsible for updating the contents of search controller. This means that the ViewController must conform to the new `UISearchResultsUpdating` protocol. 
 
-`controller.searchBar.sizeToFit()`     
-`countryTable.tableHeaderView = controller.searchBar`
-
-Finally, you need to set the frame of the searchBar (otherwise it has a height of 0). 
+In `viewDidLoad`, `countrySearchController.searchBar` is  set as the tableHeaderView and the `countrySearchController.searchResultsUpdater` is set to the current ViewController. The ViewController is responsible for updating the contents of search controller. This means that the ViewController must conform to the new `UISearchResultsUpdating` protocol. 
+ 
 
 There is no need to add a search bar in Interface Builder.
 
 ### ViewControllerExtensions.swift
-The important protocol included the extensions file is `extension ViewController: UISearchResultsUpdating`.
+The important protocol included in the extension file is `UISearchResultsUpdating`.
 
-When this delegate method is called:
+When the `updateSearchResultsForSearchController` function is called:
 - `searchArray` is cleared
 - a search of `countryArray` is performed based on `searchController.searchBar.text`
 - any matches are added to `searchArray`
@@ -46,6 +52,11 @@ A standalone tableViewController is created in Storyboard and then instantiated 
 `AlternateTableViewController` conforms to `UISearchResultsUpdating` and is responsible for displaying search results from the original view controller's search results array.
 
 ---
+
+####05th March 2016
+
+- Updated to support Swift 2.3 beta (Xcode >= 7.3)
+
 
 ####23rd Feb 2015
 
