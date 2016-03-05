@@ -16,6 +16,7 @@
 		DFAF529F1C8B272C0078CF02 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = DFAF529E1C8B272C0078CF02 /* .travis.yml */; };
 		DFBAD19019B5D1E9004C5852 /* AlternateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAD18F19B5D1E9004C5852 /* AlternateTableViewController.swift */; };
 		DFBAD19219B5D32E004C5852 /* AlternateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBAD19119B5D32E004C5852 /* AlternateTableViewCell.swift */; };
+		DFEE05FC1C8B2E59001194B6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DFEE05FB1C8B2E59001194B6 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		DFAF529E1C8B272C0078CF02 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		DFBAD18F19B5D1E9004C5852 /* AlternateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternateTableViewController.swift; sourceTree = "<group>"; };
 		DFBAD19119B5D32E004C5852 /* AlternateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternateTableViewCell.swift; sourceTree = "<group>"; };
+		DFEE05FB1C8B2E59001194B6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		DF4818E719A0D3C900767C45 = {
 			isa = PBXGroup;
 			children = (
+				DFEE05FB1C8B2E59001194B6 /* .gitignore */,
 				DF48191519A0F95000767C45 /* README.md */,
 				DFAF529E1C8B272C0078CF02 /* .travis.yml */,
 				DF4818F219A0D3C900767C45 /* SearchController */,
@@ -222,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFEE05FC1C8B2E59001194B6 /* .gitignore in Resources */,
 				DFAF529F1C8B272C0078CF02 /* .travis.yml in Resources */,
 				DF4818FB19A0D3C900767C45 /* Main.storyboard in Resources */,
 				DF4818FD19A0D3C900767C45 /* Images.xcassets in Resources */,

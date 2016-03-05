@@ -1,9 +1,9 @@
 # UISearchController
 [![Build Status](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg?branch=master)](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift)
 
-This app uses the new `UISearchController` API to manage the display of search results. 
+This is a small demonstation of the new `UISearchController` API. 
 
-There one class: `ViewController.swift`, and its extension file, `ViewControllerExtensions.swift`.
+There is one class: `ViewController.swift`, and its extension file, `ViewControllerExtensions.swift`.
 
 ### ViewController.swift
 This class sets up a sample `Array` of different countries (`countryArray`), an `Array` for holding search results (`searchArray`), and finally a `UISearchController` called `countrySearchController`.
