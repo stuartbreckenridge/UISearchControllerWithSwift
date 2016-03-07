@@ -1,5 +1,6 @@
 # UISearchController
 [![Build Status](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg?branch=master)](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift)
+![Swift Version](https://img.shields.io/badge/Swift-2.3-%23FD3C33.svg)
 
 This is a small demonstation of the new `UISearchController` API. 
 
@@ -50,12 +51,3 @@ A standalone tableViewController is created in Storyboard and then instantiated 
     let controller = UISearchController(searchResultsController: alternateController)
 
 `AlternateTableViewController` conforms to `UISearchResultsUpdating` and is responsible for displaying search results from the original view controller's search results array.
-
----
-
-
-####05th March 2016
-
-- Updated to Swift 2.3 beta (Xcode >= 7.3)
- 
-    
