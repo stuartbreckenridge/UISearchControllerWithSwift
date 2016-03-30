@@ -17,20 +17,22 @@ extension ViewController: UITableViewDataSource
         case true:
             return searchArray.count
         case false:
-            return countryArray.count
+            return Countries.list.count
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = countryTable.dequeueReusableCellWithIdentifier("Cell")!
+        let cell = countryTable.dequeueReusableCellWithIdentifier("Cell") as! SearchTableViewCell
+        cell.textLabel?.text = ""
+        cell.textLabel?.attributedText = NSAttributedString(string: "")
         
         switch countrySearchController.active {
         case true:
-            cell.textLabel?.text! = searchArray[indexPath.row]
+            cell.configureCellWith(searchTerm:countrySearchController.searchBar.text!, cellText: searchArray[indexPath.row])
             return cell
         case false:
-            cell.textLabel?.text! = countryArray[indexPath.row]
+            cell.textLabel?.text! = Countries.list[indexPath.row]
             return cell
         }
     }
@@ -50,8 +52,17 @@ extension ViewController: UISearchResultsUpdating
     {
         searchArray.removeAll(keepCapacity: false)
      
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        let range = searchController.searchBar.text!.characters.startIndex ..< searchController.searchBar.text!.characters.endIndex
+        var searchString = String()
+        
+        searchController.searchBar.text?.enumerateSubstringsInRange(range, options: .ByComposedCharacterSequences, { (substring, substringRange, enclosingRange, success) in
+            searchString.appendContentsOf(substring!)
+            searchString.appendContentsOf("*")
+        })
+        
+        let searchPredicate = NSPredicate(format: "SELF LIKE[cd] %@", searchString)
+        let array = (Countries.list as NSArray).filteredArrayUsingPredicate(searchPredicate)
         searchArray = array as! [String]
+        countryTable.reloadData()
     }
 }

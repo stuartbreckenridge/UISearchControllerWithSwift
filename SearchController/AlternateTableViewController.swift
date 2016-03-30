@@ -22,13 +22,13 @@ class AlternateTableViewController: UITableViewController, UISearchResultsUpdati
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewController.searchArray.count
+        return Countries.list.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LargeCell", forIndexPath: indexPath) as! AlternateTableViewCell
 
-        cell.configureCell(countryName:viewController.searchArray[indexPath.row])
+        cell.configureCell(countryName:Countries.list[indexPath.row])
 
         return cell
     }
@@ -38,8 +38,8 @@ class AlternateTableViewController: UITableViewController, UISearchResultsUpdati
     {
         viewController.searchArray.removeAll(keepCapacity: false)
         
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (viewController.countryArray as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        let searchPredicate = NSPredicate(format: "SELF LIKE[cd] %@", searchController.searchBar.text!)
+        let array = (Countries.list as NSArray).filteredArrayUsingPredicate(searchPredicate)
         viewController.searchArray = array as! [String]
         
         self.tableView.reloadData()
