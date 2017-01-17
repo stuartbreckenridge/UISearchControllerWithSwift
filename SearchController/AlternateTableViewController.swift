@@ -8,12 +8,18 @@
 
 import UIKit
 
-class AlternateTableViewController: UITableViewController, UISearchResultsUpdating {
-
-    let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("NormalViewController") as! ViewController
+class AlternateTableViewController: UITableViewController {
+    
+    var search = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshTableView), name: NSNotification.Name.init("searchResultsUpdated"), object: nil)
+    }
+    
+    func refreshTableView(notification: Notification) {
+        search = notification.object as! [String]
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,27 +27,18 @@ class AlternateTableViewController: UITableViewController, UISearchResultsUpdati
         // Dispose of any resources that can be recreated.
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Countries.list.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return search.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LargeCell", forIndexPath: indexPath) as! AlternateTableViewCell
-
-        cell.configureCell(countryName:Countries.list[indexPath.row])
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LargeCell", for: indexPath) as! AlternateTableViewCell
+        cell.configureCell(countryName:search[indexPath.row])
         return cell
     }
     
-
-    func updateSearchResultsForSearchController(searchController: UISearchController)
-    {
-        viewController.searchArray.removeAll(keepCapacity: false)
-        
-        let searchPredicate = NSPredicate(format: "SELF LIKE[cd] %@", searchController.searchBar.text!)
-        let array = (Countries.list as NSArray).filteredArrayUsingPredicate(searchPredicate)
-        viewController.searchArray = array as! [String]
-        
-        self.tableView.reloadData()
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.init("searchResultsUpdated"), object: nil)
     }
 }

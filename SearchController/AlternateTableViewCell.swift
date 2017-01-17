@@ -10,20 +10,20 @@ import UIKit
 
 class AlternateTableViewCell: UITableViewCell {
 
-    @IBOutlet private weak var hugeCountryLabel: UILabel!
+    @IBOutlet weak var hugeCountryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func configureCell(countryName countryName:String)
+    func configureCell(countryName:String)
     {
         hugeCountryLabel.text = countryName
     }
