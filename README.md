@@ -1,6 +1,5 @@
 # UISearchController
-![](https://travis-ci.org/stuartbreckenridge/UISearchControllerWithSwift.svg?branch=master "Build Status")
-![](https://img.shields.io/badge/Swift-2.2-%23FD3C33.svg "Swift Version")
+![](https://img.shields.io/badge/Swift-3-%23FD3C33.svg "Swift Version")
 
 This is a small demonstration of the new `UISearchController` API. 
 
