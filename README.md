@@ -30,8 +30,7 @@ In `viewDidLoad`, `countrySearchController.searchBar` is  set as the tableHeader
 
 There is no need to add a search bar in Interface Builder.
 
-### ViewControllerExtensions.swift
-The important protocol included in the extension file is `UISearchResultsUpdating`.
+`ViewController` conforms to `UISearchResultsUpdating`.
 
 When the `updateSearchResultsForSearchController` function is called:
 - `searchArray` is cleared
@@ -56,4 +55,14 @@ A standalone tableViewController is created in Storyboard and then instantiated 
 let alternateController:AlternateTableViewController = storyBoard.instantiateViewControllerWithIdentifier("aTV") as! AlternateTableViewController
 let controller = UISearchController(searchResultsController: alternateController)
 
-`AlternateTableViewController` conforms to `UISearchResultsUpdating` and is responsible for displaying search results from the original view controller's search results array.
+`AlternateTableViewController` subscribes to `Notification`s. When the user enters search a search term, the search results are updated and posted through Notification Center via a `didSet`:
+
+```
+var searchArray = [String]() {
+    didSet {
+        NotificationCenter.default.post(name: NSNotification.Name.init("searchResultsUpdated"), object: searchArray)
+    }
+}
+```
+
+
