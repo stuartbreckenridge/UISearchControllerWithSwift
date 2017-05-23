@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         /* Display search results in a separate view controller */
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let alternateController = storyBoard.instantiateViewController(withIdentifier: "aTV") as! AlternateTableViewController
-        let controller = UISearchController(searchResultsController: alternateController)
-        //let controller = UISearchController(searchResultsController: nil)
+        //let controller = UISearchController(searchResultsController: alternateController)
+        let controller = UISearchController(searchResultsController: nil)
         controller.hidesNavigationBarDuringPresentation = false
         controller.dimsBackgroundDuringPresentation = false
         controller.searchBar.searchBarStyle = .minimal
@@ -89,21 +89,25 @@ extension ViewController: UISearchResultsUpdating
 {
     func updateSearchResults(for searchController: UISearchController)
     {
-        searchArray.removeAll(keepingCapacity: false)
-        
-        let range = searchController.searchBar.text!.characters.startIndex ..< searchController.searchBar.text!.characters.endIndex
-        var searchString = String()
-        
-        searchController.searchBar.text?.enumerateSubstrings(in: range, options: .byComposedCharacterSequences, { (substring, substringRange, enclosingRange, success) in
-            searchString.append(substring!)
-            searchString.append("*")
-        })
-        
-        let searchPredicate = NSPredicate(format: "SELF LIKE[cd] %@", searchString)
-        let array = (Countries.list as NSArray).filtered(using: searchPredicate)
-        searchArray = array as! [String]
-        countryTable.reloadData()
-        
+        if searchController.searchBar.text?.utf8.count == 0 {
+            searchArray = Countries.list
+            countryTable.reloadData()
+        } else {
+            searchArray.removeAll(keepingCapacity: false)
+            
+            let range = searchController.searchBar.text!.characters.startIndex ..< searchController.searchBar.text!.characters.endIndex
+            var searchString = String()
+            
+            searchController.searchBar.text?.enumerateSubstrings(in: range, options: .byComposedCharacterSequences, { (substring, substringRange, enclosingRange, success) in
+                searchString.append(substring!)
+                searchString.append("*")
+            })
+            
+            let searchPredicate = NSPredicate(format: "SELF LIKE[cd] %@", searchString)
+            let array = (Countries.list as NSArray).filtered(using: searchPredicate)
+            searchArray = array as! [String]
+            countryTable.reloadData()
+        }
     }
 }
 
