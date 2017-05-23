@@ -33,7 +33,7 @@ class AlternateTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LargeCell", for: indexPath) as! AlternateTableViewCell
-        cell.configureCell(countryName:search[indexPath.row])
+        cell.configureCell(with: search[indexPath.row])
         return cell
     }
     

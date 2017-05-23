@@ -68,7 +68,7 @@ extension ViewController: UITableViewDataSource
         
         switch countrySearchController.isActive {
         case true:
-            cell.configureCellWith(searchTerm:countrySearchController.searchBar.text!, cellText: searchArray[indexPath.row])
+            cell.configureCell(with: countrySearchController.searchBar.text!, cellText: searchArray[indexPath.row])
             return cell
         case false:
             cell.textLabel?.text! = Countries.list[indexPath.row]

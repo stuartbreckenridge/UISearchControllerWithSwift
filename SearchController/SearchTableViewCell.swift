@@ -23,7 +23,7 @@ class SearchTableViewCell: UITableViewCell {
     /// This function will configure a cell to display highlighted text where string matches have been found. It creates a regular expression out of `searchTerm`, enumerates through the default `cellText` to find matches, applies background colour to an `NSMutableAttributedString` copy of `cellText`, and then sets the attributedText of the cell's textLabel. If there is no match, or an error occurs with the regular expression, the provided `cellText` is used as is.
     /// - parameter searchTerm: `String`, the text the user has entered as a search term.
     /// - parameter cellText: `String`, the text to use if there is an error with the regular expression.
-    func configureCellWith(searchTerm:String, cellText:String)
+    func configureCell(with searchTerm:String, cellText:String)
     {
         // Create a regEx pattern
         var pattern = searchTerm.replacingOccurrences(of: " ", with: "|")
