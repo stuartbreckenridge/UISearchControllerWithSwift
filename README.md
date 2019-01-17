@@ -1,40 +1,47 @@
 # UISearchController
-![](https://img.shields.io/badge/Swift-3-%23FD3C33.svg "Swift Version")
+![](https://img.shields.io/badge/Swift-4.2-%23FD3C33.svg "Swift Version")
 
-This is a small demonstration of the new `UISearchController` API. 
+This is a small demonstration of the  `UISearchController` API. 
 
 ### Countries.swift
-This file contains a public enum—`Countries`. `Countries` has one static constant—`list`—which is an array of most countries in the world.
+This file contains an array of countries.
 
-To access the array of countries anywhere in the app, you use `Countries.list`.
-
-For more information on case-less enums, have a look at [this post](https://www.natashatherobot.com/swift-enum-no-cases/ "Natasha the Robot") on Natasha the Robot.
+To access the array of countries anywhere in the app, you use `countries`.
 
 ### ViewController.swift
 This class sets up a `UISearchController` called `countrySearchController`. The `countrySearchController` is configured during initialisation:
 
 > *nil* is passed as the argument in the method parameter as it has the effect of presenting the search results in the current view.
 
-        var countrySearchController: UISearchController = (
-            let controller = UISearchController(searchResultsController: nil)
-            controller.hidesNavigationBarDuringPresentation = false
-            controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.searchBarStyle = .Minimal
-            controller.searchBar.sizeToFit()
-            return controller
-        })()
+
+```swift 
+lazy var countrySearchController: UISearchController = ({
+    /*
+        Display search results in a separate view controller
+    let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    let alternateController = storyBoard.instantiateViewController(withIdentifier: "aTV") as! AlternateTableViewController
+    let controller = UISearchController(searchResultsController: alternateController)
+    */
+    let controller = UISearchController(searchResultsController: nil)
+    controller.hidesNavigationBarDuringPresentation = false
+    controller.dimsBackgroundDuringPresentation = false
+    controller.searchBar.searchBarStyle = .minimal
+    controller.searchResultsUpdater = self
+    controller.searchBar.sizeToFit()
+    return controller
+})()
+```
 
 
-In `viewDidLoad`, `countrySearchController.searchBar` is  set as the tableHeaderView and the `countrySearchController.searchResultsUpdater` is set to the current ViewController. The ViewController is responsible for updating the contents of search controller. This means that the ViewController must conform to the new `UISearchResultsUpdating` protocol. 
+In `viewDidLoad`, the `countrySearchController` is set as the `navigationItem.searchController` property. In addition, to make sure that the search bar is always visible, `navigationItem.hidesSearchBarWhenScrolling` is set to `false`.
 
-There is no need to add a search bar in Interface Builder.
 
-`ViewController` conforms to `UISearchResultsUpdating`.
+`ViewController` conforms to the  `UISearchResultsUpdating` protocol.
 
 When the `updateSearchResultsForSearchController` function is called:
-- `searchArray` is cleared
+- `searchArray` is emptied
 - a new `searchString` is created based on the searchBar text, which takes the form of `S*E*A*R*C*H*T*E*X*T*`
-- a search of `countryArray` is performed based on `searchController.searchBar.text`
+- a search of `countries` is performed based on `searchController.searchBar.text`
 - any matches are added to `searchArray`
 - `countryTable` is reloaded
 
@@ -51,10 +58,25 @@ An alternate setup is included that allows you to use a separate view controller
 
 A standalone tableViewController is created in Storyboard and then instantiated as part of the `UISearchController` setup.
 
-let alternateController:AlternateTableViewController = storyBoard.instantiateViewControllerWithIdentifier("aTV") as! AlternateTableViewController
-let controller = UISearchController(searchResultsController: alternateController)
 
-`AlternateTableViewController` subscribes to `Notification`s. When the user enters search a search term, the search results are updated and posted through Notification Center via a `didSet`:
+```swift
+lazy var countrySearchController: UISearchController = ({
+    // Display search results in a separate view controller
+    let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    let alternateController = storyBoard.instantiateViewController(withIdentifier: "aTV") as! AlternateTableViewController
+    let controller = UISearchController(searchResultsController: alternateController)
+
+    //let controller = UISearchController(searchResultsController: nil) 
+    controller.hidesNavigationBarDuringPresentation = false
+    controller.dimsBackgroundDuringPresentation = false
+    controller.searchBar.searchBarStyle = .minimal
+    controller.searchResultsUpdater = self
+    controller.searchBar.sizeToFit()
+    return controller
+})()
+```
+
+`AlternateTableViewController` subscribes to `Notification`s. When the user enters search a search term, the search results are updated and posted through Notification Center and observed via a `didSet`:
 
 ```
 var searchArray = [String]() {

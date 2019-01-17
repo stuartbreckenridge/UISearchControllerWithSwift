@@ -14,10 +14,10 @@ class AlternateTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshTableView), name: NSNotification.Name.init("searchResultsUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AlternateTableViewController.refreshTableView(notification:)), name: NSNotification.Name.init("searchResultsUpdated"), object: nil)
     }
     
-    func refreshTableView(notification: Notification) {
+    @objc func refreshTableView(notification: Notification) {
         search = notification.object as! [String]
         tableView.reloadData()
     }
@@ -37,8 +37,14 @@ class AlternateTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.init("searchResultsUpdated"), object: nil)
     }
 }
+
+

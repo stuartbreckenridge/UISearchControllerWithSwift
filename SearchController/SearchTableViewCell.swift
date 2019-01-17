@@ -32,15 +32,15 @@ class SearchTableViewCell: UITableViewCell {
 
         do {
             let regEx = try NSRegularExpression(pattern: pattern, options: [.caseInsensitive, .allowCommentsAndWhitespace])
-            let range = NSRange(location: 0, length: cellText.characters.count)
+            let range = NSRange(location: 0, length: cellText.count)
             let displayString = NSMutableAttributedString(string: cellText)
-            let highlightColour = UIColor(colorLiteralRed: 124/255.0, green: 215/255.0, blue: 204/255.0, alpha: 0.5)
+            let highlightColour = UIColor(red: 124/255, green: 215/255, blue: 204/255, alpha: 0.5)
             
             regEx.enumerateMatches(in: cellText, options: .withTransparentBounds, range: range, using: { (result, flags, stop) in
                 
                 if result?.range != nil
                 {
-                    displayString.setAttributes([NSBackgroundColorAttributeName:highlightColour], range: result!.range)
+                    displayString.setAttributes([NSAttributedString.Key.backgroundColor : highlightColour], range: result!.range)
                 }
                 
             })
